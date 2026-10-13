@@ -1,6 +1,8 @@
 import { Inter, Geist_Mono } from "next/font/google";
 import { cn } from "@workspace/ui/lib/utils";
 import { Providers } from "@/components/providers";
+import { ClerkProvider } from "@clerk/nextjs";
+import "@workspace/ui/globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,7 +31,9 @@ export default function RootLayout({
       )}
     >
       <body>
+        <ClerkProvider>
         <Providers>{children}</Providers>
+      </ClerkProvider>
       </body>
     </html>
   );
